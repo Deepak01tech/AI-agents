@@ -34,14 +34,26 @@ import Dashboard from "./pages/Dashboard";
 //   )
 // }
 
-function App() {
+// function App() {
 
+//   return (
+//     <div>
+//       <Dashboard />
+//     </div>
+//   );
+
+// }
+
+
+import Home from "./pages/Home";
+
+function App() {
   return (
     <div>
-      <Dashboard />
+      <Home />
     </div>
   );
-
 }
 
-export default App
+// export default App;
+export default App;
