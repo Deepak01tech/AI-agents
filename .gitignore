@@ -205,3 +205,10 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+ ../../About-project.docx
+
+  ../../~$out-project.docx
+
+    ../../test-llm.py
