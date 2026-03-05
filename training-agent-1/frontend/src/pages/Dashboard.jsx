@@ -1,44 +1,44 @@
-import React, { useState } from "react";
-import { runTraining } from "../api/api";
-import CodeInput from "../components/CodeInput";
-import TopicDisplay from "../components/TopicDisplay";
-import ReportDisplay from "../components/ReportDisplay";
+// import React, { useState } from "react";
+// import { runTraining } from "../api/api";
+// import CodeInput from "../components/CodeInput";
+// import TopicDisplay from "../components/TopicDisplay";
+// import ReportDisplay from "../components/ReportDisplay";
 
-function Dashboard() {
+// function Dashboard() {
 
-  const [code, setCode] = useState("");
-  const [result, setResult] = useState(null);
+//   const [code, setCode] = useState("");
+//   const [result, setResult] = useState(null);
 
-  const submitCode = async () => {
+//   const submitCode = async () => {
 
-    const response = await runTraining({
-      level: "beginner",
-      submission: code
-    });
+//     const response = await runTraining({
+//       level: "beginner",
+//       submission: code
+//     });
 
-    setResult(response.data);
-  };
+//     setResult(response.data);
+//   };
 
-  return (
+//   return (
 
-    <div style={{ padding: "30px" }}>
+//     <div style={{ padding: "30px" }}>
 
-      <h1>AI Python Training Agent</h1>
+//       <h1>AI Python Training Agent</h1>
 
-      <CodeInput code={code} setCode={setCode} />
+//       <CodeInput code={code} setCode={setCode} />
 
-      <br />
+//       <br />
 
-      <button onClick={submitCode}>
-        Submit Code
-      </button>
+//       <button onClick={submitCode}>
+//         Submit Code
+//       </button>
 
-      <TopicDisplay topic={result?.topic} />
+//       <TopicDisplay topic={result?.topic} />
 
-      <ReportDisplay result={result} />
+//       <ReportDisplay result={result} />
 
-    </div>
-  );
-}
+//     </div>
+//   );
+// }
 
-export default Dashboard;
+// export default Dashboard;
