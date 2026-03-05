@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+langgraph
+langchain
+langchain-openai
+python-dotenv
+pydantic
+sqlalchemy
+psycopg2-binary
+faiss-cpu
+tiktoken
+black
+isort
+pytest
