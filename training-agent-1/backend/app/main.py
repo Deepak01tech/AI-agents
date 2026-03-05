@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from routes.training_routes import router
 from fastapi.middleware.cors import CORSMiddleware
 
+app = FastAPI(title="AI Python Training Agent")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -10,7 +11,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app = FastAPI(title="AI Python Training Agent")
+
 
 app.include_router(router)
 
