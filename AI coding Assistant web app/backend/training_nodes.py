@@ -2,7 +2,9 @@ import os
 from typing import List, Optional
 from pydantic import BaseModel, Field
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.messages import AISameMessage, HumanMessage, SystemMessage
+# from langchain_core.messages import AISameMessage, HumanMessage, SystemMessage
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+
 from training_state import AgentState, Task, PerformanceMetrics
 
 # Initialize LLM

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { 
-  Send, Bot, User, Sparkles, MessageSquare, 
+import {
+  Send, Bot, User, Sparkles, MessageSquare,
   Settings, ChevronDown, Check, Copy, PanelLeftClose, PanelLeft,
   Terminal, Globe, Wrench
 } from 'lucide-react';
@@ -18,7 +18,7 @@ const fetchChatResponse = async (message, sessionId) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message, session_id: sessionId }),
     });
-    
+
     if (!response.ok) throw new Error(`API error: ${response.status}`);
     return await response.json();
   } catch (error) {
@@ -48,10 +48,10 @@ const toolDisplayInfo = {
 
 // Custom renderer for code blocks in Markdown
 const MarkdownComponents = {
-  code({node, inline, className, children, ...props}) {
+  code({ node, inline, className, children, ...props }) {
     const match = /language-(\w+)/.exec(className || '');
     const [copied, setCopied] = useState(false);
-    
+
     const handleCopy = () => {
       navigator.clipboard.writeText(String(children).replace(/\n$/, ''));
       setCopied(true);
@@ -110,28 +110,28 @@ function App() {
 
   const handleSubmit = async (e) => {
     e?.preventDefault();
-    
+
     if (!inputVal.trim() || isLoading) return;
-    
+
     const userMsg = inputVal.trim();
     setInputVal('');
-    
+
     setMessages(prev => [...prev, { role: 'user', content: userMsg }]);
     setIsLoading(true);
-    
+
     const response = await fetchChatResponse(userMsg, sessionId);
-    
+
     setIsLoading(false);
-    
+
     if (response.error) {
-      setMessages(prev => [...prev, { 
-        role: 'ai', 
+      setMessages(prev => [...prev, {
+        role: 'ai',
         content: `**Error:** ${response.error}\n\nMake sure the backend is running.`,
         tools_used: [],
       }]);
     } else {
-      setMessages(prev => [...prev, { 
-        role: 'ai', 
+      setMessages(prev => [...prev, {
+        role: 'ai',
         content: response.response,
         tools_used: response.tools_used || [],
       }]);
@@ -161,19 +161,19 @@ function App() {
             <div className="logo-container">
               <Sparkles size={18} />
             </div>
-            <span className="app-title">Nexus AI</span>
+            <span className="app-title">Bridgefix AI</span>
           </div>
-          
+
           <div className="sidebar-content">
             <button className="new-chat-btn" onClick={clearChat}>
               <MessageSquare size={16} />
               New session
             </button>
-            
+
             <div style={{ padding: '0 4px', fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600, marginTop: '8px', marginBottom: '8px' }}>
               AGENT CAPABILITIES
             </div>
-            
+
             <div className="capability-item">
               <Wrench size={14} style={{ color: 'var(--accent)' }} />
               <span>Tool Use (Code & Search)</span>
@@ -186,7 +186,7 @@ function App() {
               <Sparkles size={14} style={{ color: 'var(--secondary)' }} />
               <span>Multi-step Reasoning</span>
             </div>
-            
+
             <div style={{ padding: '0 4px', fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600, marginTop: '16px', marginBottom: '8px' }}>
               CURRENT SESSION
             </div>
@@ -203,7 +203,7 @@ function App() {
                 No active session
               </div>
             )}
-            
+
             <div style={{ marginTop: 'auto', borderTop: '1px solid var(--border)', paddingTop: '16px' }}>
               <div className="history-item">
                 <Settings size={16} />
@@ -219,8 +219,8 @@ function App() {
         {/* Header */}
         <header className="top-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <button 
-              className="icon-btn" 
+            <button
+              className="icon-btn"
               onClick={() => setSidebarOpen(!sidebarOpen)}
               title={sidebarOpen ? "Close sidebar" : "Open sidebar"}
             >
@@ -228,7 +228,7 @@ function App() {
             </button>
             <div className="model-selector">
               <Sparkles size={14} style={{ color: 'var(--accent)' }} />
-              <span>Nexus AI Agent v2.0</span>
+              <span>Bridgefix AI Agent v2.0</span>
               <ChevronDown size={14} />
             </div>
           </div>
@@ -249,9 +249,9 @@ function App() {
               <p className="welcome-subtitle">
                 I'm your AI coding agent. I can write & <strong>run code</strong>, <strong>search the web</strong>, and remember our full conversation.
               </p>
-              
+
               <div className="suggestions-grid">
-                <button className="suggestion-card" onClick={() => setInputVal("Run this Python code: print('Hello from Nexus AI!')")}>
+                <button className="suggestion-card" onClick={() => setInputVal("Run this Python code: print('Hello from Bridgefix AI!')")}>
                   <div className="suggestion-icon"><Terminal size={18} /></div>
                   <div className="suggestion-title">Execute Code</div>
                   <div className="suggestion-desc">Run a Python snippet live</div>
@@ -308,7 +308,7 @@ function App() {
                   </div>
                 </div>
               ))}
-              
+
               {isLoading && (
                 <div className="message ai">
                   <div className="avatar ai">
@@ -350,8 +350,8 @@ function App() {
               <div className="toolbar-actions">
                 {/* Reserved space for file upload etc. */}
               </div>
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="send-btn"
                 disabled={!inputVal.trim() || isLoading}
               >
@@ -360,7 +360,7 @@ function App() {
             </div>
           </form>
           <div className="input-footer">
-            Nexus AI Agent • Memory enabled • Tools: Code Execution, Web Search
+            Bridgefix AI Agent • Memory enabled • Tools: Code Execution, Web Search
           </div>
         </div>
       </main>

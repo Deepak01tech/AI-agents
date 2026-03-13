@@ -1,4 +1,4 @@
-# 🤖 Nexus AI — AI Coding Assistant Web App
+# 🤖 Bridgefix AI — AI Coding Assistant Web App
 
 A sleek, full-stack AI-powered coding assistant built with **React + Vite** on the frontend and **FastAPI + Google Gemini** on the backend. Ask it to write code, debug errors, explain architectures, or help with any programming task.
 

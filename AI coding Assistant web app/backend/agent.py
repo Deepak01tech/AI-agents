@@ -79,7 +79,7 @@ def web_search(query: str) -> str:
 # System Prompt
 # ---------------------------------------------------------------------------
 
-SYSTEM_INSTRUCTION = """You are Nexus AI, an expert AI coding assistant with real capabilities.
+SYSTEM_INSTRUCTION = """You are Bridgefix AI, an expert AI coding assistant with real capabilities.
 
 You have access to the following tools:
 1. **run_python_code** — Execute Python code to verify solutions, perform calculations, test logic, or demonstrate output.
@@ -101,7 +101,7 @@ Guidelines:
 
 # Initialize the LLM
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
+    model="gemini-2.0-flash",
     temperature=0.2,
     google_api_key=os.getenv("GEMINI_API_KEY"),
 )
@@ -219,7 +219,7 @@ def clear_session(session_id: str = "default") -> bool:
 # CLI mode for quick testing
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
-    print("Nexus AI Agent (LangGraph) — CLI Mode (type 'exit' to quit)\n")
+    print("Bridgefix AI Agent (LangGraph) — CLI Mode (type 'exit' to quit)\n")
     sid = "cli"
     while True:
         user_input = input("\nYou: ")
